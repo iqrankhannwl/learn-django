@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+    create blog
+{% endblock title %}
+
+{%block content%}
+
+<form class=" col-sm-4 mx-auto my-4" method = "POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title">
+      <label for="author">Author</label>
+      <input type="text" class="form-control" name="author" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Author name">
+      <label for="author">Tags</label>
+      <input type="text" class="form-control" name="tags" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Author name">
+      <label for="title">Description</label>
+     <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </form>
+{%endblock content%}

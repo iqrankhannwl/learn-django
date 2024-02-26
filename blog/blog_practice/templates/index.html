@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+
+{%block title%}
+    Home
+{%endblock title%}
+
+{%block content%}
+    <h1 class="text-success">Home page</h1>
+    <div class="container">
+        <div class="row">
+            {%for blog in blogs%}
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://cdn.pixabay.com/photo/2024/01/23/10/23/reed-8527393_1280.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{blog.title}}</h5>
+                      <p class="card-text">{{blog.description | truncatechars:20}}.</p>
+                      <a href="/blog/{{blog.id}}" class="btn btn-primary">Read More</a>
+                      <a href="/delete_blog/{{blog.id}}" class="btn btn-danger">Delete</a>
+                    </div>
+                  </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+{%endblock content%}
