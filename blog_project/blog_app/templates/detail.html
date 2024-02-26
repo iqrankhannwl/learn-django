@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block title%}
+ Blog details
+{%endblock title%}
+
+{%block content%}
+<div class="container my-5">
+    <h1 class="lead"> {{blog.title}}</h1>
+    <hr>
+    <p class="text-muted">
+        {{blog.description}}
+    </p>
+    <hr>
+    <p>
+        Created By <i>{{blog.author}}</i> <br> Date {{blog.create_at}}
+    </p>
+
+    <p class="alert alert-light">
+        {{blog.tags}}
+    </p>
+    <a href="/" class="btn btn-success">Back</a>
+</div>
+{%endblock content%}
