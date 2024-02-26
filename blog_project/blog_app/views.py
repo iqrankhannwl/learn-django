@@ -13,10 +13,9 @@ def create_blog(request):
         author = request.POST.get("author")
         tags = request.POST.get("tags")
         description = request.POST.get("description")
-        blog = Blogs(title=title, author=author, tags =tags, description=description)
+        blog = Blogs(title=title, author=author, tags=tags, description=description)
         blog.save()
         return redirect("/")
-
     return render(request, "create.html")
 
 def detail(request, id):
@@ -27,3 +26,15 @@ def delete_blog(request, id):
     blog =  Blogs.objects.get(pk=id)
     blog.delete()
     return redirect("/")
+
+
+def update_blog(request, id):
+    blog = Blogs.objects.get(pk=id)
+    if request.method == "POST":
+        blog.title = request.POST.get("title")
+        blog.description = request.POST.get("description")
+        blog.tags = request.POST.get("tags")
+        blog.author = request.POST.get("author")
+        blog.save()
+        return redirect("/")
+    return render(request, "update.html", {"blog":blog})

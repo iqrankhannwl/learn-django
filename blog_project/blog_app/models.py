@@ -8,3 +8,4 @@ class Blogs(models.Model):
     create_at = models.DateTimeField(auto_now_add = True)
     author = models.CharField(max_length = 20)
     tags = models.CharField(max_length = 50)
+    images = models.ImageField(upload_to="media")
